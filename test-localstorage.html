@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+        .result { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>PT Task Manager - Local Storage Test</h1>
+    
+    <button onclick="testSave()">Test Save to LocalStorage</button>
+    <button onclick="testLoad()">Test Load from LocalStorage</button>
+    <button onclick="testClear()">Clear LocalStorage</button>
+    
+    <div id="result" class="result">Ready to test...</div>
+    
+    <script>
+        function testSave() {
+            const testTasks = [
+                {
+                    id: "test1",
+                    title: "Sample Task 1",
+                    description: "This is a test task",
+                    priority: "high",
+                    status: "todo",
+                    dueDate: "2024-07-10",
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                },
+                {
+                    id: "test2",
+                    title: "Sample Task 2",
+                    description: "Another test task",
+                    priority: "medium",
+                    status: "in-progress",
+                    dueDate: "",
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                }
+            ];
+            
+            try {
+                localStorage.setItem('pt-task-manager-data', JSON.stringify(testTasks));
+                document.getElementById('result').innerHTML = `
+                    <strong>✅ Save Test Successful!</strong><br>
+                    Saved ${testTasks.length} test tasks to localStorage.<br>
+                    Key: 'pt-task-manager-data'
+                `;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `
+                    <strong>❌ Save Test Failed!</strong><br>
+                    Error: ${error.message}
+                `;
+            }
+        }
+        
+        function testLoad() {
+            try {
+                const savedData = localStorage.getItem('pt-task-manager-data');
+                if (savedData) {
+                    const tasks = JSON.parse(savedData);
+                    document.getElementById('result').innerHTML = `
+                        <strong>✅ Load Test Successful!</strong><br>
+                        Found ${tasks.length} tasks in localStorage.<br>
+                        <pre>${JSON.stringify(tasks, null, 2)}</pre>
+                    `;
+                } else {
+                    document.getElementById('result').innerHTML = `
+                        <strong>⚠️ No Data Found!</strong><br>
+                        No tasks found in localStorage. Try saving first.
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = `
+                    <strong>❌ Load Test Failed!</strong><br>
+                    Error: ${error.message}
+                `;
+            }
+        }
+        
+        function testClear() {
+            try {
+                localStorage.removeItem('pt-task-manager-data');
+                document.getElementById('result').innerHTML = `
+                    <strong>✅ Clear Test Successful!</strong><br>
+                    LocalStorage has been cleared.
+                `;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `
+                    <strong>❌ Clear Test Failed!</strong><br>
+                    Error: ${error.message}
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
