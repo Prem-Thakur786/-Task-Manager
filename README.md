@@ -7,7 +7,7 @@
 
 A modern, responsive task management application built with React, featuring drag-and-drop functionality, local storage persistence, and a beautiful UI/UX design.
 
-![Task Manager Demo](public/favicon.svg)
+![Task Manager Demo](<img width="947" alt="image" src="https://github.com/user-attachments/assets/7daf4836-5b39-4d7f-9f48-59ea96159741" />)
 
 ## 🚀 Features
 
@@ -153,4 +153,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**© 2024 PT Task Manager by Prem Thakur** - Built with ❤️ using React and Tailwind CSS
+**© 2025 PT Task Manager by Prem Thakur** - Built with ❤️ using React and Tailwind CSS
