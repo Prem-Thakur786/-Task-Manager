@@ -7,9 +7,6 @@
 
 A modern, responsive task management application built with React, featuring drag-and-drop functionality, local storage persistence, and a beautiful UI/UX design.
 
-![Task Manager Demo](<img width="947" alt="image" src="https://github.com/user-attachments/assets/04ef1acf-8d1b-4a13-a220-d68456050789" />
-)
-
 ## 🚀 Features
 
 - **Drag & Drop**: Intuitive drag-and-drop interface for task management
